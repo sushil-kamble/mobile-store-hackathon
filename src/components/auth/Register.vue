@@ -115,7 +115,8 @@ export default {
               .then(() => {
                 this.$store.dispatch("fetchUser", data.user)
                 db.ref("/users/" + data.user.uid).set({
-                  name: data.user.displayName
+                  name: data.user.displayName,
+                  id: data.user.uid
                 })
                 this.feedback = ""
                 this.loading = false

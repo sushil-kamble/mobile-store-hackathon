@@ -52,8 +52,8 @@
             color="primary"
             text
             @click="
-              loading = true;
-              passwordReset();
+              loading = true
+              passwordReset()
             "
             :loading="loading"
           >
@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { auth } from "@/firebase/init";
+import { auth } from "@/firebase/init"
 export default {
   name: "ForgotPass",
   data() {
@@ -77,43 +77,43 @@ export default {
       loading: false,
       rules: {
         email: (v) =>
-          this.validateEmail(v) || "Should be a valid email address.",
-      },
-    };
+          this.validateEmail(v) || "Should be a valid email address."
+      }
+    }
   },
   methods: {
     validateEmail(email) {
       const re =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(String(email).toLowerCase());
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return re.test(String(email).toLowerCase())
     },
     closeDialog() {
-      this.dialog = false;
-      this.feedback = null;
-      this.email = null;
+      this.dialog = false
+      this.feedback = null
+      this.email = null
     },
     passwordReset() {
       if (this.email && this.validateEmail(this.email))
         auth
           .sendPasswordResetEmail(this.email)
           .then(() => {
-            this.feedback = "Email Successfully Sent";
-            this.email = null;
-            this.loading = false;
-            this.$refs.form.reset();
+            this.feedback = "Email Successfully Sent"
+            this.email = null
+            this.loading = false
+            this.$refs.form.reset()
           })
           .catch((error) => {
-            console.log(error);
-            this.feedback = error.message;
-            this.loading = false;
-          });
+            console.log(error)
+            this.feedback = error.message
+            this.loading = false
+          })
       else {
-        this.feedback = "Please Check Your Email";
-        this.loading = false;
+        this.feedback = "Please Check Your Email"
+        this.loading = false
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped></style>

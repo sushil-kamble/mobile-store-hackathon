@@ -13,6 +13,13 @@
           <v-list-item-title>Profile</v-list-item-title>
         </v-list-item>
 
+        <v-list-item
+          :to="{ name: 'Admin' }"
+          v-if="user.id === 'BUXVrQPSbGP9GQIKChMrfXUOK2k1'"
+        >
+          <v-list-item-title>Admin</v-list-item-title>
+        </v-list-item>
+
         <v-list-item link class="error--text">
           <v-list-item-title @click="logout">Logout</v-list-item-title>
         </v-list-item>

@@ -12,7 +12,9 @@
     "network": "Dual sims 4g LTE",
     "price": 57999,
     "size": 5.8,
-    "stock": 4
+    "stock": 4,
+    "when": "none",
+    "who": "none"
   },
   "2": {
     "id": 2,
@@ -27,7 +29,9 @@
     "network": "Dual sims 4g LTE",
     "price": 26999,
     "size": 5.8,
-    "stock": 3
+    "stock": 3,
+    "when": "none",
+    "who": "none"
   },
   "3": {
     "id": 3,
@@ -42,7 +46,9 @@
     "network": "Dual sims 4g LTE",
     "price": 28900,
     "size": 5.8,
-    "stock": 2
+    "stock": 2,
+    "when": "none",
+    "who": "none"
   },
   "4": {
     "id": 4,
@@ -57,7 +63,9 @@
     "network": "Dual sims 4g LTE",
     "price": 19999,
     "size": 5.1,
-    "stock": 0
+    "stock": 0,
+    "when": "none",
+    "who": "none"
   },
   "5": {
     "id": 5,
@@ -72,7 +80,9 @@
     "network": "Dual sims 4g LTE",
     "price": 7399,
     "size": 5.96,
-    "stock": 2
+    "stock": 2,
+    "when": "none",
+    "who": "none"
   },
   "6": {
     "id": 6,
@@ -87,7 +97,9 @@
     "network": "Dual sims 4g LTE",
     "price": 25990,
     "size": 5.2,
-    "stock": 3
+    "stock": 3,
+    "when": "none",
+    "who": "none"
   },
   "7": {
     "id": 7,
@@ -102,7 +114,9 @@
     "network": "Dual sims 4g LTE",
     "price": 12999,
     "size": 5.93,
-    "stock": 4
+    "stock": 4,
+    "when": "none",
+    "who": "none"
   },
   "8": {
     "id": 8,
@@ -117,7 +131,9 @@
     "network": "Dual sims 4g",
     "price": 9099,
     "size": 4.7,
-    "stock": 4
+    "stock": 4,
+    "when": "none",
+    "who": "none"
   },
   "9": {
     "id": 9,
@@ -132,7 +148,9 @@
     "network": "4g",
     "price": 4999,
     "size": 4.0,
-    "stock": 2
+    "stock": 2,
+    "when": "none",
+    "who": "none"
   },
   "10": {
     "id": 10,
@@ -147,6 +165,8 @@
     "network": "Dual sim 4g",
     "price": 3790,
     "size": 2.4,
-    "stock": 4
+    "stock": 4,
+    "when": "none",
+    "who": "none"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "phones": {
+      ".write": "auth != null",
+      ".read": true
+    },
+    "users": {
+      "$uid": {
+        ".write": "$uid === auth.uid",
+        ".read": "$uid === auth.uid"
+      }
+    }
+  }
+}

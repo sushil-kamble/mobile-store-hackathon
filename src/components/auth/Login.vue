@@ -52,12 +52,12 @@
 </template>
 
 <script>
-import { auth } from "@/firebase/init.js";
-import ForgotPass from "@/components/auth/ForgotPass";
+import { auth } from "@/firebase/init.js"
+import ForgotPass from "@/components/auth/ForgotPass"
 export default {
   name: "Login",
   components: {
-    ForgotPass,
+    ForgotPass
   },
   data() {
     return {
@@ -65,47 +65,47 @@ export default {
       password: "",
       loading: false,
       show1: false,
-      feedback: "",
-    };
+      feedback: ""
+    }
   },
   computed: {
     emailPostfixTemplate() {
-      return this.email.search("@") === -1;
-    },
+      return this.email.search("@") === -1
+    }
   },
   methods: {
     emailPostfix() {
       if (this.email.search("@") !== -1) {
         // Pass
       } else if (this.email.slice(-10) !== "@gmail.com") {
-        this.email = this.email + "@gmail.com";
+        this.email = this.email + "@gmail.com"
       }
     },
     login() {
       if (this.email && this.password) {
-        this.loading = true;
-        this.emailPostfix();
+        this.loading = true
+        this.emailPostfix()
         auth
           .signInWithEmailAndPassword(this.email, this.password)
           .then(() => {
-            this.feedback = "";
-            this.loading = false;
-            this.$router.replace({ name: "Home" });
+            this.feedback = ""
+            this.loading = false
+            this.$router.replace({ name: "Home" })
           })
           .catch((err) => {
-            console.log(err);
-            this.feedback = err.message;
-            this.loading = false;
-          });
+            console.log(err)
+            this.feedback = err.message
+            this.loading = false
+          })
       } else {
-        this.feedback = "Please Enter Email / Password";
+        this.feedback = "Please Enter Email / Password"
       }
     },
     registerView() {
-      this.$emit("registerView");
-    },
-  },
-};
+      this.$emit("registerView")
+    }
+  }
+}
 </script>
 
 <style></style>

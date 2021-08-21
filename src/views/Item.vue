@@ -33,9 +33,20 @@
             </ul>
           </div>
           <v-card-actions class="mt-2">
-            <h2 class="error--text" v-show="filterPhone.stock === 0">
-              Out of Stock
-            </h2>
+            <div class="error--text" v-show="filterPhone.stock === 0">
+              <h4>Out of Stock</h4>
+              <div
+                v-show="
+                  filterPhone.when !== 'none' && filterPhone.who !== 'none'
+                "
+              >
+                <h5>
+                  Time it was booked out:
+                  {{ filterPhone.when }}
+                </h5>
+                <h5>By User with user Id: {{ filterPhone.who }}</h5>
+              </div>
+            </div>
             <v-spacer></v-spacer>
             <Dialog
               title="Add to Cart"

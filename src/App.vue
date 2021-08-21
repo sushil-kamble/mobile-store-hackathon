@@ -13,15 +13,15 @@
 </template>
 
 <script>
-import Navbar from "@/components/layout/Navbar";
-import Snackbars from "@/components/layout/Snackbars";
+import Navbar from "@/components/layout/Navbar"
+import Snackbars from "@/components/layout/Snackbars"
 export default {
   name: "App",
   components: {
     Snackbars,
-    Navbar,
-  },
-};
+    Navbar
+  }
+}
 </script>
 
 <style scoped>

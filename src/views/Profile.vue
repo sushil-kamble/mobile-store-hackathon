@@ -76,6 +76,10 @@ export default {
         const updates = {}
         updates["/users/" + this.user.id + "/purchase/" + id] = quantity - 1
         updates["/phones/" + id + "/stock"] = stock + 1
+        if (stock === 0) {
+          updates[`/phones/${id}/who`] = "none"
+          updates[`/phones/${id}/when`] = "none"
+        }
         db.ref().update(updates)
       }
     },
@@ -84,6 +88,10 @@ export default {
       const stock = this.getStockById(id)
       if (quantity > 0) {
         const updates = {}
+        if (stock === 0) {
+          updates[`/phones/${id}/who`] = "none"
+          updates[`/phones/${id}/when`] = "none"
+        }
         updates["/users/" + this.user.id + "/purchase/" + id] = null
         updates["/phones/" + id + "/stock"] = stock + quantity
         db.ref().update(updates)

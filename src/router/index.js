@@ -1,29 +1,20 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import { auth } from "@/firebase/init.js";
+import Vue from "vue"
+import VueRouter from "vue-router"
+import Home from "../views/Home.vue"
+import { auth } from "@/firebase/init.js"
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: Home
   },
   {
     path: "/auth",
     name: "Auth",
-    component: () => import(/* webpackChunkName: "auth" */ "../views/Auth.vue"),
+    component: () => import(/* webpackChunkName: "auth" */ "../views/Auth.vue")
   },
   // PROTECTED PATH
   // For Protected Path include meta property as shown below.
@@ -33,40 +24,56 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "profile" */ "../views/Profile.vue"),
     meta: {
-      requiresAuth: true,
-    },
+      requiresAuth: true
+    }
   },
   {
     path: "/item/:id",
     name: "Item",
-    component: () => import(/* webpackChunkName: "item" */ "../views/Item.vue"),
+    component: () => import(/* webpackChunkName: "item" */ "../views/Item.vue")
+  },
+  {
+    path: "/user/:id",
+    name: "User",
+    component: () => import(/* webpackChunkName: "user" */ "../views/User.vue"),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/cart",
     name: "Cart",
-    component: () =>
-      import(/* webpackChunkName: "profile" */ "../views/Cart.vue"),
+    component: () => import(/* webpackChunkName: "cart" */ "../views/Cart.vue"),
     meta: {
-      requiresAuth: true,
-    },
+      requiresAuth: true
+    }
   },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: () =>
+      import(/* webpackChunkName: "admin" */ "../views/Admin.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  }
   // PROTECTED PATH
-];
+]
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes,
-});
+  routes
+})
 
 router.beforeEach((to, from, next) => {
-  const requiresAuth = to.matched.some((x) => x.meta.requiresAuth);
+  const requiresAuth = to.matched.some((x) => x.meta.requiresAuth)
 
   if (requiresAuth && !auth.currentUser) {
-    next({ name: "Auth" });
+    next({ name: "Auth" })
   } else {
-    next();
+    next()
   }
-});
+})
 
-export default router;
+export default router

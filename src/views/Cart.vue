@@ -160,8 +160,13 @@ export default {
       if (this.cart.length > 0 && this.validateCart) {
         const updates = {}
         for (const item in this.toObjectCart) {
-          updates[`/phones/${item}/stock`] =
+          const total =
             this.getStockById(parseInt(item)) - this.toObjectCart[item]
+          updates[`/phones/${item}/stock`] = total
+          if (total === 0) {
+            updates[`/phones/${item}/who`] = this.user.id
+            updates[`/phones/${item}/when`] = Date().toLocaleString()
+          }
         }
         updates["/users/" + this.user.id + "/purchase"] = this.toObject(
           this.purchase

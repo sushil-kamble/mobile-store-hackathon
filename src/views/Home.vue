@@ -7,7 +7,17 @@
         src="phones/iphonex.png"
         gradient="45deg, rgba(41,41,41,0.95) 0%, rgba(61,61,61,0.1) 100%"
       >
-        <v-card-title class="text-h2">iPhone X</v-card-title>
+        <div class="pa-4 d-flex justify-space-between align-center">
+          <h2 class="text-sm-h2">iPhone X</h2>
+          <div v-if="getIphoneX">
+            <v-chip
+              class="ma-2"
+              :color="checkAvailability(getIphoneX.stock)[1]"
+            >
+              {{ checkAvailability(getIphoneX.stock)[0] }}
+            </v-chip>
+          </div>
+        </div>
       </v-img>
     </v-card>
     <div class="mt-5">
@@ -26,7 +36,7 @@
               contain
             >
               <div class="pa-2 d-flex justify-space-between align-center">
-                <h2>{{ phone.name }}</h2>
+                <div class="text-sm-h5">{{ phone.name }}</div>
                 <div>
                   <v-chip
                     class="ma-2"
@@ -55,6 +65,9 @@ export default {
     }),
     filterPhones() {
       return this.phones ? this.phones.filter((phone) => phone.id !== 1) : []
+    },
+    getIphoneX() {
+      return this.phones ? this.phones.find((phone) => phone.id === 1) : {}
     }
   },
   methods: {
