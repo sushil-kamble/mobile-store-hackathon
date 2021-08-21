@@ -5,9 +5,9 @@
       ".read": true
     },
     "users": {
+      ".read": "auth != null",
       "$uid": {
-        ".write": "$uid === auth.uid",
-        ".read": "$uid === auth.uid"
+        ".write": "$uid === auth.uid"
       }
     }
   }
