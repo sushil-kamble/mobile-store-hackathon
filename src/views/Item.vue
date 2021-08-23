@@ -22,7 +22,7 @@
             <h1>₹ {{ filterPhone.price }}</h1>
             <h3 class="mt-2 my-1 grey--text text--darken-1">Specifications</h3>
             <v-divider></v-divider>
-            <ul class="mt-2">
+            <ul class="mt-2 text-sm-body-1">
               <li><span>Processor: </span>{{ filterPhone.processor }}</li>
               <li><span>Main Camera: </span>{{ filterPhone.mainCam }}</li>
               <li><span>Front Camera: </span>{{ filterPhone.frontCam }}</li>
@@ -32,6 +32,7 @@
               <li><span>OS: </span>{{ filterPhone.os }}</li>
             </ul>
           </div>
+          <v-divider class="my-2"></v-divider>
           <v-card-actions class="mt-2">
             <div class="error--text" v-show="filterPhone.stock === 0">
               <h4>Out of Stock</h4>
@@ -40,11 +41,11 @@
                   filterPhone.when !== 'none' && filterPhone.who !== 'none'
                 "
               >
-                <h5>
+                <h6>
                   Time it was booked out:
                   {{ filterPhone.when }}
-                </h5>
-                <h5>By User with user Id: {{ filterPhone.who }}</h5>
+                </h6>
+                <h6>By User with user Id: {{ filterPhone.who }}</h6>
               </div>
             </div>
             <v-spacer></v-spacer>
@@ -55,8 +56,8 @@
               @add-to-cart="addToCart"
               v-if="user && filterPhone.stock !== 0"
             />
-            <v-btn v-else-if="filterPhone.stock === 0" disabled>
-              Out of Stock
+            <v-btn v-else-if="filterPhone.stock === 0" disabled x-small>
+              X
             </v-btn>
             <v-btn v-else :to="{ name: 'Auth' }" color="secondary">
               Login, To Buy
