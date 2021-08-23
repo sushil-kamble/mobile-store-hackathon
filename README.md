@@ -25,11 +25,11 @@ on our mobile/laptop home screen.
 * Vuexfire & Vuetify
 
 ## Screenshots
-![HomePage](sc/Screenshot 2021-08-21 174146.png)
-![Phone Page](sc/Screenshot 2021-08-21 180035.png)
-![Cart Page](sc/Screenshot 2021-08-21 180600.png)
-![Purchase Page](sc/Screenshot 2021-08-21 181021.png)
-![Out of stock](sc/Screenshot 2021-08-21 191717.png)
+![HomePage](sc/homepage.png)
+![Phone Page](sc/add-to-cart.png)
+![Cart Page](sc/cart.png)
+![Purchase Page](sc/profile.png)
+![Out of stock](sc/out-of-stock.png)
 
 ## Admin Panel
 ```
@@ -38,8 +38,8 @@ on our mobile/laptop home screen.
 ```
 Login with the above details to see the secret Admin Panel
 Once you log in via admin credentials.
-Click on the Menu Button
-![Admin Page](sc/Screenshot 2021-08-21 213113.png)
+Click on the Menu Button. You will now see this admin panel.
+![Admin Page](sc/admin-panel.png)
 
 ## Project setup
 ```
